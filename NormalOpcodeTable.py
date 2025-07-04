@@ -315,7 +315,7 @@ class NormalOpcodeDisassembler:
         #This is not actually an error but it's due to the fact there is some unused command data at the end so we use this as a safe guard for now.
         if text_offset is None:
             print(f"[ERROR] Unexpected EOF while reading string offset at {current_offset}, max Offset = {len(GlobalBuffer.command_data)}")
-            return  # or raise Exception depending on desired behavior
+            return 
         
         if text_offset < len(GlobalBuffer.text_data):
             length, string = read_C_string(GlobalBuffer.text_data, text_offset)
