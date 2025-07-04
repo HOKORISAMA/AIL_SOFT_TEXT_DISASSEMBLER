@@ -44,7 +44,6 @@ class Disassembler:
         if len(data) < 12:
             raise DisassemblerError("File too small to contain valid header")
         
-        # Use slice assignment for better performance
         header_data = data[:12]
         return FileHeader(
             reserved1=read_uint32(header_data[:4]),
